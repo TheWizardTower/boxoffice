@@ -1,14 +1,14 @@
 name:                boxoffice
 version:             0.1.0.0
--- synopsis:
--- description:
-homepage:            https://github.com/githubuser/boxoffice#readme
+synopsis:            This provides an API to track hits of a website.
+-- description:         TODO: Man it'd be great if I dubbed this in later once I wrote it.
+homepage:            https://github.com/TheWizardTower/boxoffice#readme
 license:             BSD3
 license-file:        LICENSE
-author:              Author name here
-maintainer:          example@example.com
-copyright:           2017 Author name here
-category:            Web
+author:              Adam McCullough
+maintainer:          merlinfmct87@gmail.com
+copyright:           2017 Adam McCullough
+category:            Library
 build-type:          Simple
 extra-source-files:  README.md
 cabal-version:       >=1.10
@@ -21,4 +21,4 @@ library
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/boxoffice
+  location: https://github.com/TheWizardTower/boxoffice
