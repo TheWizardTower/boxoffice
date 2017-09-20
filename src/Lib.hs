@@ -12,11 +12,11 @@ initLib = newTVarIO []
 
 resetCount :: TVar ([UTCTime]) -> IO ()
 resetCount tVar = do
-  atomically $ modifyTVar' tVar returnEmptyList
+  atomically $ writeTVar tVar returnEmptyList
   return ()
 
-returnEmptyList :: [UTCTime] -> [UTCTime]
-returnEmptyList _ = []
+returnEmptyList :: [UTCTime]
+returnEmptyList = []
 
 addCount :: TVar ([UTCTime]) -> IO ()
 addCount tVar = do
