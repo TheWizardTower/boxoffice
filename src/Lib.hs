@@ -3,32 +3,33 @@ module Lib
     ) where
 
 import Control.Monad.Trans.State
-import Data.IORef
+import Control.Concurrent.STM.TVar
+import GHC.Conc.Sync
 import Data.Time.Clock
 
-initLib :: IO (IORef ([UTCTime]))
-initLib = newIORef []
+initLib :: IO (TVar ([UTCTime]))
+initLib = newTVarIO []
 
-resetCount :: IORef ([UTCTime]) -> IO ()
-resetCount ioRef = do
-  modifyIORef' ioRef returnEmptyList
+resetCount :: TVar ([UTCTime]) -> IO ()
+resetCount tVar = do
+  atomically $ modifyTVar' tVar returnEmptyList
   return ()
 
 returnEmptyList :: [UTCTime] -> [UTCTime]
 returnEmptyList _ = []
 
-addCount :: IORef ([UTCTime]) -> IO ()
-addCount ioRef = do
+addCount :: TVar ([UTCTime]) -> IO ()
+addCount tVar = do
   currentTime <- getCurrentTime
-  modifyIORef' ioRef (addToList currentTime)
+  atomically $ modifyTVar' tVar (addToList currentTime)
   return ()
 
 addToList :: a -> [a] -> [a]
 addToList time list = time : list
 
-showCount :: IORef ([UTCTime]) -> IO ()
-showCount ioRef = do
-  list <- (readIORef ioRef :: IO [UTCTime])
+showCount :: TVar ([UTCTime]) -> IO ()
+showCount tVar = do
+  list <- (readTVarIO tVar :: IO [UTCTime])
   putStrLn $ show list
   return ()
 
