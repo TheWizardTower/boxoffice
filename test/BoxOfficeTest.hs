@@ -1,6 +1,6 @@
 module BoxOfficeTest where
 
-import           Lib
+import           BoxOffice
 import           Control.Concurrent.Async
 import           Test.Tasty            (TestTree, testGroup)
 import           Test.Tasty.HUnit
