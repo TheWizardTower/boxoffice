@@ -1,4 +1,4 @@
-module Lib
+module BoxOffice
     ( initLib
     , resetCount
     , addCount
