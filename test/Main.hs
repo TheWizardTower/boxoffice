@@ -1,4 +1,4 @@
-import LibTest
+import BoxOfficeTest
 import Test.Tasty
 
 main :: IO ()
