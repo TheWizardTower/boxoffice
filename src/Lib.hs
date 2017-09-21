@@ -1,5 +1,9 @@
 module Lib
-    ( testFunc
+    ( initLib
+    , resetCount
+    , addCount
+    , showCount
+    , getCount
     ) where
 
 import Control.Monad.Trans.State
@@ -30,15 +34,10 @@ addToList time list = time : list
 showCount :: TVar ([UTCTime]) -> IO ()
 showCount tVar = do
   list <- (readTVarIO tVar :: IO [UTCTime])
-  putStrLn $ show list
+  putStrLn $ show $ length list
   return ()
 
-testFunc :: IO ()
-testFunc = do
-  myTVar <- initLib
-  addCount   myTVar
-  addCount   myTVar
-  showCount  myTVar
-  resetCount myTVar
-  showCount  myTVar
-  return ()
+getCount :: TVar ([UTCTime]) -> IO Int
+getCount tVar = do
+  list <- (readTVarIO tVar :: IO [UTCTime])
+  return $ length list
