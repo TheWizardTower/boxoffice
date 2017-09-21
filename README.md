@@ -5,7 +5,9 @@
 # **DISCLAIMER**
 
 This is not meant for production use, this is an educational exercise to get
-myself familiar with TVars and testing IO functions via QuickCheck.
+myself familiar with TVars and testing IO functions via QuickCheck. Not that
+anyone could mistake this as a prod-worthy library, but I like making extra-sure
+we're all on the same page. :)
 
 # Introduction
 
