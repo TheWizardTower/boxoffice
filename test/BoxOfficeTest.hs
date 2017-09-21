@@ -1,4 +1,4 @@
-module LibTest where
+module BoxOfficeTest where
 
 import           Lib
 import           Control.Concurrent.Async

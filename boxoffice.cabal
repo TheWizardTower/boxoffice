@@ -26,7 +26,7 @@ test-suite boxoffice-test
   type: exitcode-stdio-1.0
   hs-source-dirs: test
   main-is: Main.hs
-  other-modules: LibTest
+  other-modules: BoxOfficeTest
   build-depends:       boxoffice
                      , async
                      , base
