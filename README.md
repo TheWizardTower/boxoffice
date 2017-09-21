@@ -54,4 +54,6 @@ main = do
 * Another issue with this design is, everybody has to stand in line to report a
   hit, because of how TVars work. You can probably get around this by calling
   addCount asynchronously, but it's still obnoxious.
+* This library should also track what specific URL on the website was hit, as
+  well as what time.
 
