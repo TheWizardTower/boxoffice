@@ -2,7 +2,7 @@ module BoxOffice
     ( initLib
     , resetCount
     , addCount
-    , showCount
+    , showList
     , getCount
     ) where
 
@@ -31,8 +31,8 @@ addCount tVar = do
 addToList :: a -> [a] -> [a]
 addToList time list = time : list
 
-showCount :: TVar ([UTCTime]) -> IO ()
-showCount tVar = do
+showList :: TVar ([UTCTime]) -> IO ()
+showList tVar = do
   list <- (readTVarIO tVar :: IO [UTCTime])
   putStrLn $ show $ length list
   return ()
@@ -41,3 +41,25 @@ getCount :: TVar ([UTCTime]) -> IO Int
 getCount tVar = do
   list <- (readTVarIO tVar :: IO [UTCTime])
   return $ length list
+
+getCountAfter :: UTCTime -> TVar ([UTCTime]) -> IO Int
+getCountAfter time tVar = do
+  list <- (readTVarIO tVar :: IO [UTCTime])
+  return $ length $ filter (predicateAfter time) list
+
+getCountBefore :: UTCTime -> TVar ([UTCTime]) -> IO Int
+getCountBefore time tVar = do
+  list <- (readTVarIO tVar :: IO [UTCTime])
+  return $ length $ filter (predicateBefore time) list
+
+predicateAfter :: UTCTime -> UTCTime -> Bool
+predicateAfter argTime tVarTime = case compare argTime tVarTime of
+  EQ -> True
+  GT -> True
+  LT -> False
+
+predicateAfter :: UTCTime -> UTCTime -> Bool
+predicateAfter argTime tVarTime = case compare argTime tVarTime of
+  EQ -> True
+  GT -> False
+  LT -> True
