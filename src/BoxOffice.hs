@@ -58,8 +58,8 @@ predicateAfter argTime tVarTime = case compare argTime tVarTime of
   GT -> True
   LT -> False
 
-predicateAfter :: UTCTime -> UTCTime -> Bool
-predicateAfter argTime tVarTime = case compare argTime tVarTime of
+predicateBefore :: UTCTime -> UTCTime -> Bool
+predicateBefore argTime tVarTime = case compare argTime tVarTime of
   EQ -> True
   GT -> False
   LT -> True
