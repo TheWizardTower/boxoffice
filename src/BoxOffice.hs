@@ -2,7 +2,7 @@ module BoxOffice
     ( initLib
     , resetCount
     , addCount
-    , showList
+    , showHitList
     , getCount
     ) where
 
@@ -47,8 +47,8 @@ addToList time list = time : list
 -- This function returns the [UTCTime] inside the TVar. This can be useful if
 -- the end user wants to do some analysis on what hits happened when. This is
 -- great if you want to graph hits over time.
-showList :: TVar ([UTCTime]) -> IO ()
-showList tVar = do
+showHitList :: TVar ([UTCTime]) -> IO ()
+showHitList tVar = do
   list <- (readTVarIO tVar :: IO [UTCTime])
   putStrLn $ show $ length list
   return ()

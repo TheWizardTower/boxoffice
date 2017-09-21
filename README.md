@@ -22,7 +22,7 @@ hits (via the addCount function), the current time is appended to the list. You
 can clear the list via the resetCount function.
 
 You can also get the number of hits with getCount, or the raw list of UTCDates
-with showList. You can also get a filtered list via getCountAfter and
+with showHitList. You can also get a filtered list via getCountAfter and
 getCounterBefore, which take a UTCDate as well as a TVar as an argument.
 
 # Example usage
