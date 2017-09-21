@@ -7,6 +7,8 @@
 This is not meant for production use, this is an educational exercise to get
 myself familiar with TVars and testing IO functions via QuickCheck.
 
+# Introduction
+
 This is a Haskell library to count hits to a website. It provides an initLib
 method, which returns the TVar the rest of the library functions interface with.
 This is best done at the toplevel main of your application.
